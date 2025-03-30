@@ -18,7 +18,25 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
   - [4.1 Tabla `productos`](#41-tabla-productos)
   - [4.2 Tabla `pedidos`](#41-tabla-pedidos)
   - [4.3 Inserción de datos en la tabla `productos`](#5-inserción-de-datos-en-la-tabla-productos)
-- [5. Creación de la query `listarProdutos`](#6-creación-de-la-query-listarprodutos)
+- [5. Creación de la página principal con el listado de productos](#5-creación-de-la-página-principal-con-el-listado-de-productos)
+  - [5.1 Creación de la query `listarProdutos`](#51-creación-de-la-query-listarprodutos)
+  - [5.2 Creación de la página `Productos`](#52-creación-de-la-página-productos)
+  - [5.3 Componentes necesarios para mostra los productos](#53-añadimos-los-componentes-necesarios-para-mostra-los-productos)
+    - [5.3.1 Añadir un componente `ListView`](#531-añadir-un-componente-listview)
+    - [5.3.2 Añadimos un componente `Image`](#532-añadir-un-componente-image)
+    - [5.3.3 Añadir los componentes `Text`](#533-añadir-los-componentes-text)
+    - [5.3.4 Añadir un componente `Number Input`](#534-añadir-un-componente-number-input)
+    - [5.3.5 Añadir un componente `Button`](#535-añadir-un-componente-button)
+  - [5.4 Creación de la query `actualizarCarrito` para ejecutar código JavaScript](#54-creación-de-la-query-para-ejecutar-código-javascript)
+  - [5.5 Añadimos los componentes de la parte superior de la página de productos](#55-añadimos-los-componentes-de-la-parte-superior-de-la-página-de-productos)
+- [6. Creación de la página para tramitar el pedido](#6-creación-de-la-página-para-tramitar-el-pedido)
+  - [6.1 Creación de la página `Comprar`](#61-creación-de-la-página-comprar)
+  - [6.2 Añadimos los componentes necesarios](#62-añadimos-los-componentes-necesarios)
+    - [6.2.1 Añadir un componente `Table`](#621-añadir-un-componente-table)
+    - [6.2.2 Añadir un componente `Text`](#622-añadir-un-componente-text)
+    - [6.2.3 Añadir un componente `Button`](#623-añadir-un-componente-button)
+  - [6.3 Creación de la query `insertarPedido`](#63-creación-de-la-query-insertarpedido)
+
 
 # 1. ¿Qué es ToolJet
 
@@ -157,7 +175,7 @@ Añadimos una nueva página a la aplicación que se llame `Productos`.
 
 ![](images/pagina_productos_add.png)
 
-## 5.3 Añadimos los componentes necesarios
+## 5.3 Añadimos los componentes necesarios para mostra los productos
 
 ### 5.3.1 Añadir un componente `ListView`
 
@@ -165,7 +183,7 @@ En primer lugar, vamos a añdir un componente `ListView` a la página `Productos
 
 En las propiedades del componente `ListView` vamos a seleccionar el campo `List data` y vamos a configurar la query `listarProdutos` que hemos creado anteriormente.
 
-```javascript
+```
 {{queries.listaProductos.data}}
 ```
 
@@ -244,7 +262,7 @@ Esta query tiene que existir previamente para poder añadirla al evento `onClick
 
 ![](images/pagina_productos_anadir.png)
 
-## 5.4 Creación de la query para ejecutar código JavaScript
+## 5.4 Creación de la query `actualizarCarrito` con JavaScript
 
 Vamos a crear una query que se llame `actualizarCarrito` que permita ejecutar código JavaScript.
 
@@ -255,8 +273,6 @@ El código JavaScript que vamos a ejecutar es el siguiente:
 ```javascript
 // Hacemos una copia mutable del array carrito
 let carrito = [...(variables.carrito || [])];
-
-//alert(carrito);
 
 // Obtenemos el id y la cantidad del ListView
 let id = parseInt(components.listview.selectedRow.idProducto.text);
@@ -297,6 +313,223 @@ actions.setVariable('numeroProductos', numeroProductos)
 
 > [!NOTE]
 > Una vez que ha creado la query `actualizarCarrito` y ha añadido el código JavaScript, ya puede añadir esta query al evento `onClick` del botón `Añadir a la cesta`.
+
+## 5.5 Configuramos que el script `actualizarCarrito` se ejecute al cargar la página
+
+Para que el script `actualizarCarrito` se ejecute automáticamente al cargar la página, vamos a añadir un evento `On page load` a la página `Productos`.
+
+En primer lugar, accedemos a la opción de `Events Handler` de la página `Productos`.
+
+![](images/pagina_productos_onload_1.png)
+
+Creamos un nuevo evento de tipo `On page load` y añadimos la query `actualizarCarrito`.
+
+![](images/pagina_productos_actualizar_carrito_onload.png)
+
+## 5.6 Añadimos los componentes de la parte superior de la página de productos
+
+### 5.6.1 Número total de productos
+
+En la parte superior de la página de productos vamos a añadir un componente `Text` para mostrar el número de productos.
+
+Configuramos la propiedad `Data` para mostrar el número total de productos que tiene el carrito.
+
+```
+{{variables.numeroProductos}}
+```
+
+![](images/pagina_productos_numero_total.png)
+
+
+Para inicializar la variable global `numeroProductos` vamos a añadir un evento `On page load` a la página `Productos`.
+
+En primer lugar, accedemos a la opción de `Events Handler` de la página `Productos`.
+
+![](images/pagina_productos_onload_1.png)
+
+Ahora creamos un nuevo evento `On page load` y definimos la variable global `numeroProductos` con el valor `0`.
+
+![](images/pagina_productos_onload_1.png)
+
+### 5.6.2 Botones `Ver JSON`, `Vaciar carrito` y `Comprar`
+
+Además del número de productos, vamos a añadir tres componentes de tipo `Button`:
+
+- **`Ver JSON`**: Muestra el contenido del carrito en formato JSON. Se ha añadido únicamente para facilitar la depuración de la aplicación.
+- **`Vaciar carrito`**: Elimina todos los elementos del carrito.
+- **`Comprar`**: Nos redirige a la página de tramitar el pedido.
+
+**Ver carrito en formato JSON**
+
+![](images/pagina_productos_ver_json.png)
+
+**Vaciar carrito**
+
+En este botón vamos a configurar dos enventos `onClick`:
+
+- Uno para ejecutar la query `vaciarCarrito`.
+- Otro para mostrar un mensaje de confirmacion en un alert.
+
+![](images/pagina_productos_vaciar_carrito_click_1.png)
+
+> [!NOTE]
+> La query `vaciarCarrito` tiene que existir previamente para poder añadirla al evento `onClick`. La crearemos en el siguiente paso.
+
+![](images/pagina_productos_vaciar_carrito_click_2.png)
+
+**Comprar**
+
+Al pulsar sobre el botón de `Comprar` la aplicación nos redirige a la página `Comprar` para tramitar el pedido.
+
+![](images/pagina_productos_comprar.png)
+
+> [!NOTE]
+> La página `Comprar` tiene que existir previamente para poder añadirla al evento `onClick`. La crearemos en el siguiente paso.
+
+## 5.7 Creación de la query `vaciarCarrito`
+
+Vamos a crear una query que se llame `vaciarCarrito` que permita ejecutar código JavaScript.
+
+![](images/pagina_productos_query_vaciar_carrito_1.png)
+
+La query quedará así:
+
+![](images/pagina_productos_query_vaciar_carrito_2.png)
+
+El código JavaScript que vamos a ejecutar es el siguiente:
+
+```javascript
+// Inicilizamos el array del carrito
+actions.setVariable('carrito', []);
+
+// Inicilizamos el número de productos
+actions.setVariable('numeroProductos', 0);
+
+// Inicilizamos el precio total
+actions.setVariable('precioTotal', 0);
+```
+
+## 6. Creación de la página para tramitar el pedido
+
+## 6.1 Creación de la página `Comprar`
+
+Añadimos una nueva página a la aplicación que se llame `Comprar`.
+
+![](images/pagina_productos_add.png)
+
+## 6.2 Creación de la query `calcularPrecioTotal` con JavaScript
+
+Vamos a crear una query que se llame `calcularPrecioTotal` que permita ejecutar código JavaScript.
+
+![](images/pagina_productos_query_actualizar_carrito.png)
+
+La query quedará así:
+
+![](images/pagina_comprar_query_calcular_precio_total.png)
+
+El código JavaScript que vamos a ejecutar es el siguiente:
+
+```javascript
+// Obtenemos una copia de la variable global carrito
+let carrito = variables.carrito;
+
+// Calculamos el precio total del pedido
+let precioTotal = 0;
+for (let i = 0; i < carrito.length; i++) {
+  precioTotal = precioTotal + (carrito[i].precio * carrito[i].cantidad);
+}
+
+// Actualizamos la variable global con el total
+actions.setVariable('precioTotal', precioTotal);
+```
+
+## 6.3 Configuramos que el script `calcularPrecioTotal` se ejecute al cargar la página de `Comprar`
+
+Para que el script `calcularPrecioTotal` se ejecute automáticamente al cargar la página, vamos a añadir un evento `On page load` a la página `Comprar`.
+
+En primer lugar, accedemos a la opción de `Events Handler` de la página `Comprar`.
+
+![](images/pagina_comprar_onload_1.png)
+
+Creamos un nuevo evento de tipo `On page load` y añadimos la query `calcularPrecioTotal`.
+
+![](images/pagina_comprar_onload_2.png)
+
+## 6.4 Añadimos los componentes necesarios
+
+### 6.4.1 Añadir un componente `Table`
+
+Añadimos un componente de tipo `Table` para mostrar el contenido del carrito.
+
+Configuramos la propiedad `Data` para mostrar el contenido de la variable global `carrito`.
+
+```
+{{variables.carrito}}
+```
+
+![](images/pagina_comprar_table.png)
+
+### 6.4.2 Añadir un componente `Text`
+
+Añadimos un componente de tipo `Text` para mostrar el precio total del pedido.
+
+Configuramos la propiedad `Data` para mostrar el precio total del pedido.
+
+```
+Total: {{variables.precioTotal}} €
+```
+
+![](images/pagina_comprar_precio_total.png)
+
+### 6.4.3 Añadir un componente `Button`
+
+Añadimos un componente de tipo `Button` para que el usuario pueda tramitar el pedido.
+
+En este botón vamos a añadir un evento `onClick` para que cuando el usuario haga click sobre el botón se ejecute una Query, que en nuestro caso se llamará `insertarPedido`.
+
+![](images/pagina_comprar_tramitar_pedido.png)
+
+> [!NOTE]
+> La query `insertarPedido` tiene que existir previamente para poder añadirla al evento `onClick`. La crearemos en el siguiente paso.
+
+## 6.5 Creación de la query `insertarPedido`
+
+Vamos a crear una query que se llame `insertarPedido` que permita insertar un pedido en la tabla `pedidos`.
+
+![](images/pagina_comprar_query_insertar_pedido_0.png)
+
+Configuramos la query para que inserte un nuevo pedido
+en la tabla `pedidos`.
+
+En la pestaña `Setup` tenemos que indicar qué datos se van a insertar en cada una de las columnas:
+
+- `fecha`: `NOW()`
+- `total`: `{{parseFloat(variables.precioTotal)}}`
+- `carrito`: `{{variables.carrito}}`
+- `id_usuario`: `{{globals.currentUser.id}}`
+
+![](images/pagina_comprar_query_insertar_pedido_1.png)
+
+En la pestaña `Settings` configuramos los algunos eventos:
+
+- `Query success`: Mostramos un mensaje al usuario indicando que el pedido se ha tramitado correctamente.
+
+![](images/pagina_comprar_query_insertar_pedido_3.png)
+
+- `Query success`: Redirigimos al usuario a la página principal donde se muestra el listado de productos.
+
+![](images/pagina_comprar_query_insertar_pedido_4.png)
+
+- `Query success`: Ejecutamos la query `vaciarCarrito` para vaciar el carrito.
+
+![](images/pagina_comprar_query_insertar_pedido_5.png)
+
+- `Query Failure`: Mostramos un mensaje al usuario indicando que ha habido un error al tramitar el pedido.
+
+![](images/pagina_comprar_query_insertar_pedido_6.png)
+
+
+# Referencias
 
 [0]: https://www.tooljet.ai
 [1]: https://www.ual.es/estudios/grados/presentacion/plandeestudios/asignatura/4015/40153316
