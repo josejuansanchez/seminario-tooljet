@@ -183,7 +183,7 @@ Añadimos un componente de tipo `Image` y configuramos la propiedad URL para que
 
 ![](images/pagina_productos_imagen.png)
 
-### 5.3.2 Añadimos los componentes `Text`
+### 5.3.3 Añadimos los componentes `Text`
 
 Añadimos 3 componentes de tipo `Text` para mostrar:
 
@@ -228,9 +228,75 @@ Configuramos la propiedad `Data` para mostrar el precio del producto.
 > [!NOTE]
 > Hemos utilizado dos componentes `Text` auxiliares para mostrar el texto `Precio:` y el carácter `€`.
 
-### 5.3.2 Añadimos componentes `Text`, `Button` y `Number Input`
+### 5.3.4 Añadimos un componente `Number Input`
 
+Añadimos un componente de tipo `Number Input` para que el usuario pueda seleccionar la cantidad de productos que quiere añadir al carrito.
 
+![](images/pagina_productos_cantidad.png)
+
+### 5.3.5 Añadimos un componente `Button`
+
+Añadimos un componente de tipo `Button` para que el usuario pueda añadir el producto al carrito.
+
+En este botón vamos a añadir un evento `onClick` para que cuando el usuario haga click sobre el botón se ejecute una Query, que en nuestro caso se llamará `actualizarCarrito`.
+
+Esta query tiene que existir previamente para poder añadirla al evento `onClick`.
+
+![](images/pagina_productos_anadir.png)
+
+## 5.4 Creación de la query para ejecutar código JavaScript
+
+Vamos a crear una query que se llame `actualizarCarrito` que permita ejecutar código JavaScript.
+
+![](images/pagina_productos_query_actualizar_carrito.png)
+
+El código JavaScript que vamos a ejecutar es el siguiente:
+
+```javascript
+// Hacemos una copia mutable del array carrito
+let carrito = [...(variables.carrito || [])];
+
+//alert(carrito);
+
+// Obtenemos el id y la cantidad del ListView
+let id = parseInt(components.listview.selectedRow.idProducto.text);
+let cantidad = parseInt(components.listview.selectedRow.cantidad.value);
+let precio = parseFloat(components.listview.selectedRow.precio.text);
+
+// Buscamos si el id del producto ya existe en el carrito
+let itemExistente = null;
+let encontrado = false;
+for (let i = 0; i < carrito.length; i++) {
+  if (carrito[i].id === id) {
+    itemExistente = carrito[i];
+    encontrado = true;
+    break;
+  }
+}
+
+// Si el producto ya existe, actualizamos la cantidad
+// y sino existe, lo añadimos
+if (encontrado) {
+  itemExistente.cantidad = cantidad;
+} else {
+  carrito.push({ "id": id, "cantidad": cantidad, "precio": precio });
+}  
+
+// Guardamos el estado del carrito
+actions.setVariable('carrito', carrito)
+
+// Sumamos la cantidad de items del carrito
+let numeroProductos = 0;
+for (let i = 0; i < carrito.length; i++) {
+  numeroProductos = numeroProductos + carrito[i].cantidad;
+}
+
+// Guardamos el número total de productos
+actions.setVariable('numeroProductos', numeroProductos)
+```
+
+> [!NOTE]
+> Una vez que ha creado la query `actualizarCarrito` y ha añadido el código JavaScript, ya puede añadir esta query al evento `onClick` del botón `Añadir a la cesta`.
 
 [0]: https://www.tooljet.ai
 [1]: https://www.ual.es/estudios/grados/presentacion/plandeestudios/asignatura/4015/40153316
