@@ -123,11 +123,19 @@ Una vez seleccionada la base de datos, vamos a crear dos tablas:
 
 ## 4.1 Tabla `productos`
 
-![](images/tabla_pedidos.png)
+![](images/tabla_productos.png)
 
 ## 4.1 Tabla `pedidos`
 
-![](images/tabla_productos.png)
+![](images/tabla_pedidos.png)
+
+Observe que el tipo de dato seleccionado para el carrito es `JSON`. 
+
+Por ejemplo, un carrito con dos productos tendría el siguiente formato:
+
+```json
+[{"id": 1, "cantidad": 2, "precio": 10.0}, {"id": 2, "cantidad": 1, "precio": 5.0}]
+```
 
 ## 4.3 Inserción de datos en la tabla `productos`
 
@@ -135,7 +143,42 @@ Una vez que hemos creado las tablas vamos a insertar algunos datos en la tabla `
 
 ![](images/tabla_insertar_datos_productos.png)
 
-# 5. Creación de la query `listarProdutos`
+# 5. Creación de la página principal con el listado de productos
+
+## 5.1 Creación de la query `listarProdutos`
+
+En primer lugar vamos a crear una query a la que vamos a llamar `listaProdutos`, que nos permita obtener una lista de los productos que hay en la base de datos.
+
+![](images/pagina_productos_query_listaproductos.png)
+
+## 5.2 Creación de la página `Productos`
+
+Añadimos una nueva página a la aplicación que se llame `Productos`.
+
+![](images/pagina_productos_add.png)
+
+## 5.3 Añadimos los componentes necesarios
+
+### 5.3.1 Añadir un componente `ListView`
+
+En primer lugar, vamos a añdir un componente `ListView` a la página `Productos`.
+
+En las propiedades del componente `ListView` vamos a seleccionar el campo `List data` y vamos a configurar la query `listarProdutos` que hemos creado anteriormente.
+
+```json
+{{queries.listaProductos.data}}
+```
+
+Esto hará que el componente `ListView` muestre los datos que devuelve la query `listarProdutos`.
+
+![](images/pagina_producto_listview.png)
+
+### 5.3.2 Añadimos componentes `Text`, `Button` y `Number Input`
+
+![](images/pagina_productos_imagen.png)
+
+### 5.3.2 Añadimos componentes `Text`, `Button` y `Number Input`
+
 
 
 [0]: https://www.tooljet.ai
