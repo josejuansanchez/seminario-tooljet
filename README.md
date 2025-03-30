@@ -165,7 +165,7 @@ En primer lugar, vamos a añdir un componente `ListView` a la página `Productos
 
 En las propiedades del componente `ListView` vamos a seleccionar el campo `List data` y vamos a configurar la query `listarProdutos` que hemos creado anteriormente.
 
-```json
+```javascript
 {{queries.listaProductos.data}}
 ```
 
@@ -173,9 +173,60 @@ Esto hará que el componente `ListView` muestre los datos que devuelve la query 
 
 ![](images/pagina_producto_listview.png)
 
-### 5.3.2 Añadimos componentes `Text`, `Button` y `Number Input`
+### 5.3.2 Añadimos un componente `Image`
+
+Añadimos un componente de tipo `Image` y configuramos la propiedad URL para que muestre la imagen del producto.
+
+```
+{{listItem.imagen}}
+```
 
 ![](images/pagina_productos_imagen.png)
+
+### 5.3.2 Añadimos los componentes `Text`
+
+Añadimos 3 componentes de tipo `Text` para mostrar:
+
+- el nombre, 
+- el identificador, 
+- el precio del producto.
+
+**Nombre**
+
+Configuramos la propiedad `Data` para mostrar el nombre del produto.
+
+```
+{{listItem.nombre}}
+```
+
+![](images/pagina_productos_nombre.png)
+
+**Identificador**
+
+Configuramos la propiedad `Data` para mostrar el identificador del producto.
+
+```
+{{listItem.id}}
+```
+
+![](images/pagina_productos_id.png)
+
+
+> [!NOTE]
+> Hemos utilizado un componente `Text` auxiliar para mostrar el texto `ID`.
+
+**Precio**
+
+Configuramos la propiedad `Data` para mostrar el precio del producto.
+
+```
+{{listItem.precio}}
+```
+
+![](images/pagina_productos_precio.png)
+
+> [!NOTE]
+> Hemos utilizado dos componentes `Text` auxiliares para mostrar el texto `Precio:` y el carácter `€`.
 
 ### 5.3.2 Añadimos componentes `Text`, `Button` y `Number Input`
 
