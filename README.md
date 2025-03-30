@@ -4,21 +4,21 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
 
 # Índice de contenidos
 
-1. [¿Qué es ToolJet?](#1-qué-es-tooljet)
-2. [Descripción de la aplicación](#2-descripción-de-la-aplicación)
-3. [Mockups de la aplicación](#3-mockups-de-la-aplicación)
-  3.1. [Listado de productos](#31-listado-de-productos)
-  3. 2. [Añadir productos al carrito](#32-añadir-productos-al-carrito)
-  3.3. [Ver el estado del carrito en formato JSON](#33-ver-el-estado-del-carrito-en-formato-json)
-  3.4. [Vaciar el carrito](#34-vaciar-el-carrito)
-  3.5. [Comprar](#35-comprar)
-  3.6. [Menú de navegación](#36-menú-de-navegación)
-  3.7. [Listado de pedidos](#37-listado-de-pedidos)
-4. [Creación de las tablas de la base de datos](#4-creación-de-las-tablas-de-la-base-de-datos)
-  4.1. [Tabla `productos`](#41-tabla-productos)
-  4.2. [Tabla `pedidos`](#41-tabla-pedidos)
-  4.3. [Inserción de datos en la tabla `productos`](#5-inserción-de-datos-en-la-tabla-productos)
-5. [Creación de la query `listarProdutos`](#6-creación-de-la-query-listarprodutos)
+- [1. ¿Qué es ToolJet?](#1-qué-es-tooljet)
+- [2. Descripción de la aplicación](#2-descripción-de-la-aplicación)
+- [3. Mockups de la aplicación](#3-mockups-de-la-aplicación)
+  - [3.1 Listado de productos](#31-listado-de-productos) 
+  - [3.2 Añadir productos al carrito](#32-añadir-productos-al-carrito) 
+  - [3.3 Ver el estado del carrito en formato JSON](#33-ver-el-estado-del-carrito-en-formato-json) 
+  - [3.4 Vaciar el carrito](#34-vaciar-el-carrito)
+  - [3.5 Comprar](#35-comprar)
+  - [3.6 Menú de navegación](#36-menú-de-navegación)
+  - [3.7 Listado de pedidos](#37-listado-de-pedidos)
+- [4. Creación de las tablas de la base de datos](#4-creación-de-las-tablas-de-la-base-de-datos)
+  - [4.1 Tabla `productos`](#41-tabla-productos)
+  - [4.2 Tabla `pedidos`](#41-tabla-pedidos)
+  - [4.3 Inserción de datos en la tabla `productos`](#5-inserción-de-datos-en-la-tabla-productos)
+- [5. Creación de la query `listarProdutos`](#6-creación-de-la-query-listarprodutos)
 
 # 1. ¿Qué es ToolJet
 
