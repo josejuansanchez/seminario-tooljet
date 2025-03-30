@@ -1,21 +1,37 @@
-# Seminario de Tooljet
+# Seminario de ToolJet
 
-Repositorio para el seminario de Tooljet.
+Repositorio para el seminario de [ToolJet][0].
 
-# ¿Qué es Tooljet
+# Índice de contenidos
 
-TODO
 
-# Mockups de la aplicación
 
-## Listado de productos
+# 1. ¿Qué es ToolJet
+
+[ToolJet][0] es una [plataforma de desarrollo low-code][2] de código abierto que permite crear aplicaciones y paneles de control de forma rápida, permtiendo a conexión con diferentes fuentes de datos.
+
+# 2. Descripción de la aplicación
+
+En este seminario vamos a desarrollar una aplicación que simula una tienda online.
+
+La aplicación consta de tres páginas:
+
+1. **Productos**: Listado de productos.
+2. **Comprar**: Página donde muestra el contenido del carrito y se tramita el pedido.
+3. **Pedidos:** Listado de pedidos realizados.
+
+La aplicación **es un prototipo** que le ayudará a realizar la práctica 3 de la asignatura de [Negocio Electrónico][1].
+
+# 3. Mockups de la aplicación
+
+## 3.1 Listado de productos
 
 La página principal de la aplicación muestra un listado de productos disponibles
 en la base de datos.
 
 ![](images/mockup_00.png)
 
-## Añadir productos al carrito
+## 3.2 Añadir productos al carrito
 
 1. En la lista de productos podemos modificar la cantidad de cada tipo que queremos
 añadir al carrito.
@@ -27,7 +43,7 @@ añadido al carrito.
 
 ![](images/mockup_01.png)
 
-## Ver el estado del carrito en formato JSON
+## 3.3 Ver el estado del carrito en formato JSON
 
 El botón `Ver JSON` nos permite visualizar el estado del carrito en formato JSON.
 
@@ -38,7 +54,7 @@ aplicación.
 
 ![](images/mockup_03.png)
 
-## Vaciar el carrito
+## 3.4 Vaciar el carrito
 
 El botón `Vaciar carrito` nos permite eliminar todos los elementos del carrito.
 
@@ -46,7 +62,7 @@ El botón `Vaciar carrito` nos permite eliminar todos los elementos del carrito.
 
 ![](images/mockup_05.png)
 
-## Comprar
+## 3.5 Comprar
 
 Cuando se pulsa sobre el botón `Comprar` la aplicación nos redirige a otra
 página donde se muestra el contenido del carrito y podemos tramitar el pedido.
@@ -63,7 +79,7 @@ Si el pedido se inserta con éxito nos aparecerá un mensaje de confirmación y 
 
 ![](images/mockup_08.png)
 
-## Menú de navegación
+## 3.6 Menú de navegación
 
 La aplicación consta de tres páginas:
 
@@ -73,15 +89,15 @@ La aplicación consta de tres páginas:
 
 ![](images/mockup_09.png)
 
-## Listado de pedidos
+## 3.7 Listado de pedidos
 
 En esta página se muestra una tabla con todos los pedidos realizados por el cliente.
 
 ![](images/mockup_10.png)
 
-# Creación de las tablas de la base de datos
+# 4 Creación de las tablas de la base de datos
 
-Seleccionaremos la base de datos `Tooljet`:
+Seleccionaremos la base de datos `ToolJet`:
 
 ![](images/tabla_database.png)
 
@@ -91,19 +107,23 @@ Una vez seleccionada la base de datos, vamos a crear dos tablas:
 - `productos`: Contiene los datos de los productos.
 - `pedidos`: Contiene los datos de los pedidos realizados por el cliente.
 
-
-## Tabla `productos`
+## 4.1 Tabla `productos`
 
 ![](images/tabla_pedidos.png)
 
-## Tabla `pedidos`
+## 4.1 Tabla `pedidos`
 
 ![](images/tabla_productos.png)
 
-# Inserción de datos en la tabla `productos`
+# 5. Inserción de datos en la tabla `productos`
 
 Una vez que hemos creado las tablas vamos a insertar algunos datos en la tabla `productos`.
 
 ![](images/tabla_insertar_datos_productos.png)
 
-# Creación de la query `listarProdutos`
+# 6. Creación de la query `listarProdutos`
+
+
+[0]: https://www.tooljet.ai
+[1]: https://www.ual.es/estudios/grados/presentacion/plandeestudios/asignatura/4015/40153316
+[2]: https://en.wikipedia.org/wiki/Low-code_development_platform
