@@ -21,21 +21,27 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
 - [5. Creación de la página principal con el listado de productos](#5-creación-de-la-página-principal-con-el-listado-de-productos)
   - [5.1 Creación de la query `listarProdutos`](#51-creación-de-la-query-listarprodutos)
   - [5.2 Creación de la página `Productos`](#52-creación-de-la-página-productos)
-  - [5.3 Componentes necesarios para mostra los productos](#53-añadimos-los-componentes-necesarios-para-mostra-los-productos)
-    - [5.3.1 Añadir un componente `ListView`](#531-añadir-un-componente-listview)
-    - [5.3.2 Añadimos un componente `Image`](#532-añadir-un-componente-image)
-    - [5.3.3 Añadir los componentes `Text`](#533-añadir-los-componentes-text)
-    - [5.3.4 Añadir un componente `Number Input`](#534-añadir-un-componente-number-input)
-    - [5.3.5 Añadir un componente `Button`](#535-añadir-un-componente-button)
-  - [5.4 Creación de la query `actualizarCarrito` para ejecutar código JavaScript](#54-creación-de-la-query-para-ejecutar-código-javascript)
-  - [5.5 Añadimos los componentes de la parte superior de la página de productos](#55-añadimos-los-componentes-de-la-parte-superior-de-la-página-de-productos)
+  - [5.3 Añadimos los componentes necesarios para mostra los productos](#53-añadimos-los-componentes-necesarios-para-mostra-los-productos)
+    - [5.3.1 Añadir un componente `ListView`](#531-añadimos-un-componente-listview)
+    - [5.3.2 Añadir un componente `Image`](#532-añadimos-un-componente-image)
+    - [5.3.3 Añadir los componentes `Text`](#533-añadimos-los-componentes-text)
+    - [5.3.4 Añadir un componente `Number Input`](#534-añadimos-un-componente-number-input)
+    - [5.3.5 Añadir un componente `Button`](#535-añadimos-un-componente-button)
+  - [5.4 Creación de la query `actualizarCarrito` con JavaScript](#54-creación-de-la-query-actualizarcarrito-con-javascript)
+  - [5.5 Configuramos que el script `actualizarCarrito` se ejecute al cargar la página](#55-configuramos-que-el-script-actualizarcarrito-se-ejecute-al-cargar-la-página)
+  - [5.6 Añadimos los componentes de la parte superior de la página de productos](#56-añadimos-los-componentes-de-la-parte-superior-de-la-página-de-productos)
+    - [5.6.1 Número total de productos](#561-número-total-de-productos)
+    - [5.6.2 Botones `Ver JSON`, `Vaciar carrito` y `Comprar`](#562-botones-ver-json-vaciar-carrito-y-comprar)
+  - [5.7 Creación de la query `vaciarCarrito`](#57-creación-de-la-query-vaciarcarrito)
 - [6. Creación de la página para tramitar el pedido](#6-creación-de-la-página-para-tramitar-el-pedido)
   - [6.1 Creación de la página `Comprar`](#61-creación-de-la-página-comprar)
-  - [6.2 Añadimos los componentes necesarios](#62-añadimos-los-componentes-necesarios)
-    - [6.2.1 Añadir un componente `Table`](#621-añadir-un-componente-table)
-    - [6.2.2 Añadir un componente `Text`](#622-añadir-un-componente-text)
-    - [6.2.3 Añadir un componente `Button`](#623-añadir-un-componente-button)
-  - [6.3 Creación de la query `insertarPedido`](#63-creación-de-la-query-insertarpedido)
+  - [6.2 Creación de la query `calcularPrecioTotal` con JavaScript](#62-creación-de-la-query-calcularpreciototal-con-javascript)
+  - [6.3 Configuramos que el script `calcularPrecioTotal` se ejecute al cargar la página de `Comprar`](#63-configuramos-que-el-script-calcularpreciototal-se-ejecute-al-cargar-la-página-de-comprar)
+  - [6.4 Añadimos los componentes necesarios](#64-añadimos-los-componentes-necesarios)
+    - [6.4.1 Añadir un componente `Table`](#641-añadir-un-componente-table)
+    - [6.4.2 Añadir un componente `Text`](#642-añadir-un-componente-text)
+    - [6.4.3 Añadir un componente `Button`](#643-añadir-un-componente-button)
+  - [6.5 Creación de la query `insertarPedido`](#65-creación-de-la-query-insertarpedido)
 
 
 # 1. ¿Qué es ToolJet
@@ -177,7 +183,7 @@ Añadimos una nueva página a la aplicación que se llame `Productos`.
 
 ## 5.3 Añadimos los componentes necesarios para mostra los productos
 
-### 5.3.1 Añadir un componente `ListView`
+### 5.3.1 Añadimos un componente `ListView`
 
 En primer lugar, vamos a añdir un componente `ListView` a la página `Productos`.
 
