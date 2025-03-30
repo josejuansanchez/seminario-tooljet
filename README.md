@@ -42,6 +42,12 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
     - [6.4.2 Añadir un componente `Text`](#642-añadir-un-componente-text)
     - [6.4.3 Añadir un componente `Button`](#643-añadir-un-componente-button)
   - [6.5 Creación de la query `insertarPedido`](#65-creación-de-la-query-insertarpedido)
+  - [7. Creación de la página de pedidos](#7-creación-de-la-página-de-pedidos)
+    - [7.1 Creación de la query `listaPedidos`](#71-creación-de-la-query-listarpedidos)
+    - [7.2 Creación de la página `Pedidos`](#72-creación-de-la-página-pedidos)
+    - [7.3 Configuramos que la query `listaPedidos` se ejecute al cargar la página de `Pedidos`]()
+    - [7.4 Añadimos los componentes necesarios](#73-añadimos-los-componentes-necesarios)
+      - [7.4.1 Añadir un componente `Table`](#731-añadir-un-componente-table)
 
 
 # 1. ¿Qué es ToolJet
@@ -534,8 +540,52 @@ En la pestaña `Settings` configuramos los algunos eventos:
 
 ![](images/pagina_comprar_query_insertar_pedido_6.png)
 
+# 7. Configuración de la página de pedidos
+
+## 7.1 Creación de la query `listaPedidos`
+
+Vamos a crear una query a la que vamos a llamar `listaPedidos`, que nos permita obtener una lista de los pedidos que hay en la base de datos.
+
+![](images/pagina_pedidos_query_lista_pedidos.png)
+
+## 7.2 Creación de la página `Pedidos`
+
+Añadimos una nueva página a la aplicación que se llame `Pedidos`.
+
+![](images/pagina_productos_add.png)
+
+## 7.3 Configuramos que la query `listaPedidos` se ejecute al cargar la página de `Pedidos`
+
+Accedemos a la opción de `Events Handler` de la página `Pedidos`.
+
+![](images/pagina_pedidos_onload_1.png)
+
+Creamos un nuevo evento de tipo `On page load` y añadimos la query `listaPedidos`.
+
+![](images/pagina_pedidos_onload_2.png)
+
+## 7.4 Añadimos los componentes necesarios
+
+### 7.4.1 Añadir un componente `Table`
+
+Vamos a añdir un componente `Table` a la página `Pedidos`.
+
+En las propiedades del componente `Table` vamos a seleccionar el campo `Data` y vamos a configurar la query `listaPedidos` que hemos creado anteriormente.
+
+```
+{{queries.listaPedidos.data}}
+```
+
+![](images/pagina_pedidos_table.png)
 
 # Referencias
+
+- [ToolJet][0]
+- [Low-code development platform][2]
+
+# Licencia
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">licencia de Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>.
 
 [0]: https://www.tooljet.ai
 [1]: https://www.ual.es/estudios/grados/presentacion/plandeestudios/asignatura/4015/40153316
