@@ -78,3 +78,32 @@ La aplicación consta de tres páginas:
 En esta página se muestra una tabla con todos los pedidos realizados por el cliente.
 
 ![](images/mockup_10.png)
+
+# Creación de las tablas de la base de datos
+
+Seleccionaremos la base de datos `Tooljet`:
+
+![](images/tabla_database.png)
+
+
+Una vez seleccionada la base de datos, vamos a crear dos tablas:
+
+- `productos`: Contiene los datos de los productos.
+- `pedidos`: Contiene los datos de los pedidos realizados por el cliente.
+
+
+## Tabla `productos`
+
+![](images/tabla_pedidos.png)
+
+## Tabla `pedidos`
+
+![](images/tabla_productos.png)
+
+# Inserción de datos en la tabla `productos`
+
+Una vez que hemos creado las tablas vamos a insertar algunos datos en la tabla `productos`.
+
+![](images/tabla_insertar_datos_productos.png)
+
+# Creación de la query `listarProdutos`
