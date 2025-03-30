@@ -4,7 +4,21 @@ Repositorio para el seminario de [ToolJet][0].
 
 # Índice de contenidos
 
-
+1. [¿Qué es ToolJet?](#1-qué-es-tooljet)
+2. [Descripción de la aplicación](#2-descripción-de-la-aplicación)
+3. [Mockups de la aplicación](#3-mockups-de-la-aplicación)
+   1. [Listado de productos](#31-listado-de-productos)
+   2. [Añadir productos al carrito](#32-añadir-productos-al-carrito)
+   3. [Ver el estado del carrito en formato JSON](#33-ver-el-estado-del-carrito-en-formato-json)
+   4. [Vaciar el carrito](#34-vaciar-el-carrito)
+   5. [Comprar](#35-comprar)
+   6. [Menú de navegación](#36-menú-de-navegación)
+   7. [Listado de pedidos](#37-listado-de-pedidos)
+4. [Creación de las tablas de la base de datos](#4-creación-de-las-tablas-de-la-base-de-datos)
+   1. [Tabla `productos`](#41-tabla-productos)
+   2. [Tabla `pedidos`](#41-tabla-pedidos)
+5. [Inserción de datos en la tabla `productos`](#5-inserción-de-datos-en-la-tabla-productos)
+6. [Creación de la query `listarProdutos`](#6-creación-de-la-query-listarprodutos)
 
 # 1. ¿Qué es ToolJet
 
