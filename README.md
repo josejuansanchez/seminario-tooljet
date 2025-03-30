@@ -16,8 +16,8 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
   - [3.7 Listado de pedidos](#37-listado-de-pedidos)
 - [4. Creación de las tablas de la base de datos](#4-creación-de-las-tablas-de-la-base-de-datos)
   - [4.1 Tabla `productos`](#41-tabla-productos)
-  - [4.2 Tabla `pedidos`](#41-tabla-pedidos)
-  - [4.3 Inserción de datos en la tabla `productos`](#5-inserción-de-datos-en-la-tabla-productos)
+  - [4.2 Tabla `pedidos`](#42-tabla-pedidos)
+  - [4.3 Inserción de datos en la tabla `productos`](#43-inserción-de-datos-en-la-tabla-productos)
 - [5. Creación de la página principal con el listado de productos](#5-creación-de-la-página-principal-con-el-listado-de-productos)
   - [5.1 Creación de la query `listarProdutos`](#51-creación-de-la-query-listarprodutos)
   - [5.2 Creación de la página `Productos`](#52-creación-de-la-página-productos)
@@ -42,12 +42,12 @@ Repositorio para el seminario de [ToolJet][0] de la asignatura de [Negocio Elect
     - [6.4.2 Añadir un componente `Text`](#642-añadir-un-componente-text)
     - [6.4.3 Añadir un componente `Button`](#643-añadir-un-componente-button)
   - [6.5 Creación de la query `insertarPedido`](#65-creación-de-la-query-insertarpedido)
-  - [7. Creación de la página de pedidos](#7-creación-de-la-página-de-pedidos)
-    - [7.1 Creación de la query `listaPedidos`](#71-creación-de-la-query-listarpedidos)
-    - [7.2 Creación de la página `Pedidos`](#72-creación-de-la-página-pedidos)
-    - [7.3 Configuramos que la query `listaPedidos` se ejecute al cargar la página de `Pedidos`]()
-    - [7.4 Añadimos los componentes necesarios](#73-añadimos-los-componentes-necesarios)
-      - [7.4.1 Añadir un componente `Table`](#731-añadir-un-componente-table)
+- [7. Creación de la página de pedidos](#7-configuración-de-la-página-de-pedidos)
+  - [7.1 Creación de la query `listaPedidos`](#71-creación-de-la-query-listapedidos)
+  - [7.2 Creación de la página `Pedidos`](#72-creación-de-la-página-pedidos)
+  - [7.3 Configuramos que la query `listaPedidos` se ejecute al cargar la página de `Pedidos`](#73-configuramos-que-la-query-listapedidos-se-ejecute-al-cargar-la-página-de-pedidos)
+  - [7.4 Añadimos los componentes necesarios](#74-añadimos-los-componentes-necesarios)
+    - [7.4.1 Añadir un componente `Table`](#741-añadir-un-componente-table)
 
 
 # 1. ¿Qué es ToolJet
@@ -155,7 +155,7 @@ Una vez seleccionada la base de datos, vamos a crear dos tablas:
 
 ![](images/tabla_productos.png)
 
-## 4.1 Tabla `pedidos`
+## 4.2 Tabla `pedidos`
 
 ![](images/tabla_pedidos.png)
 
