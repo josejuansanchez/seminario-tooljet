@@ -361,7 +361,7 @@ En primer lugar, accedemos a la opción de `Events Handler` de la página `Produ
 
 Ahora creamos un nuevo evento `On page load` y definimos la variable global `numeroProductos` con el valor `0`.
 
-![](images/pagina_productos_onload_1.png)
+![](images/pagina_productos_onload_2.png)
 
 ### 5.6.2 Botones `Ver JSON`, `Vaciar carrito` y `Comprar`
 
